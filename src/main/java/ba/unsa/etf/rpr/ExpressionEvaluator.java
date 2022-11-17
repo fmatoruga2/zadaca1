@@ -12,10 +12,11 @@ public class ExpressionEvaluator {
         operatori = new Stack<String>();
         vrijednosti = new Stack<Double> ();
 
+        string = string.trim();
         if(!string.startsWith("(")) {
             throw new RuntimeException("Nevalidan unos!");
         }
-
+        string=string.trim();
         boolean space = false;
         for(int i = 0; i < string.length(); i++) {
             String str ="";
