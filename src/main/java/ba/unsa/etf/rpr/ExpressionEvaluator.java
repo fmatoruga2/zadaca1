@@ -16,10 +16,10 @@ public class ExpressionEvaluator {
         if(!string.startsWith("(")) {
             throw new RuntimeException("Nevalidan unos!");
         }
-        string=string.trim();
         boolean space = false;
         for(int i = 0; i < string.length(); i++) {
             String str ="";
+
             if(string.charAt(i) != ' '){
                 do{
                     str = str + string.charAt(i);
