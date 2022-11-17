@@ -1,13 +1,15 @@
 package ba.unsa.etf.rpr;
 
-/**
- * Hello world!
- *
- */
-public class App 
+import java.util.Scanner;
+
+public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        Scanner ulaz = new Scanner(System.in);
+        String ulazniString = ulaz.nextLine();
+        ExpressionEvaluator eval = new ExpressionEvaluator();
+            System.out.println(eval.evaluate(ulazniString));
+
     }
 }
