@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
         public void Test1(){
             ExpressionEvaluator e = new ExpressionEvaluator();
             Throwable exception = Assertions.assertThrows(RuntimeException.class,
-                    ()->{e.evaluate("( 3 + ( ( 57fm3 - 9 ) * ( 1 / 1 ) ) )");});
+                    ()->{e.evaluate("( 3 + ( 57fm3 - 9 ) )");});
         }
 
         @Test
@@ -57,7 +57,7 @@ import org.junit.jupiter.api.Test;
         public void Test9(){
             ExpressionEvaluator e = new ExpressionEvaluator();
             Throwable exception = Assertions.assertThrows(RuntimeException.class,
-                    ()->{e.evaluate("( 3 * 3. *  3)");});
+                    ()->{e.evaluate("( 3 * 3. * 3)");});
         }
     }
 
