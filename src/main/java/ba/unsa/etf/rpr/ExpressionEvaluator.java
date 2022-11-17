@@ -19,7 +19,7 @@ public class ExpressionEvaluator {
         boolean space = false;
         for(int i = 0; i < string.length(); i++) {
             String str ="";
-
+            //string koji se nalazi izmedju dva space-a, stavljamo u jedan string
             if(string.charAt(i) != ' '){
                 do{
                     str = str + string.charAt(i);
@@ -27,17 +27,20 @@ public class ExpressionEvaluator {
                     i++;
                 }while(string.charAt(i) != ' ');
             }
-
+            //provjera validnosti space-a
             if(string.charAt(i)==' ' && string.charAt(i+1)==' ') throw new RuntimeException("Nevalidan unos!");
+
             boolean validanUnos = false;
-            if (str.equals("(") || str.equals("+") || str.equals("-")
-                    || str.equals("/") || str.equals("sqrt") || str.equals(")") || str.equals("*")) {
+
+            //provjera validnosti sadrzaja stringa
+            if (str.equals("(") || str.equals("+") || str.equals("-") || str.equals("/") ||
+                str.equals("sqrt") || str.equals(")") || str.equals("*")) {
                 validanUnos = true;
             } else {
                 Double number = Double.parseDouble(str);
                 validanUnos = true;
             }
-
+            //djikstra algoritam
             if (validanUnos == true) {
                 if (str.equals("(")) ;
                 else if (str.equals("+")) operatori.push(str);
@@ -59,6 +62,8 @@ public class ExpressionEvaluator {
                 throw new RuntimeException("Nevalidan unos!");
             }
         }
+        /* U slucaju da je unos nevalidan tipa " ( 1 + 2 + 3 + 4 + 5 ) " visak ostaje u steku,
+            pa na ovaj nacin rjesavamo slucaj ovako pogresnog unosa */
         if(!operatori.isEmpty()) throw new RuntimeException("Nevalidan unos!");
         return (Double) vrijednosti.pop();
     }
