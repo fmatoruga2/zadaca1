@@ -13,7 +13,7 @@ public class ExpressionEvaluator {
         vrijednosti = new Stack<Double> ();
 
         if(!string.startsWith("(")) {
-            throw new RuntimeException("Nevalidan unos");
+            throw new RuntimeException("Nevalidan unos!");
         }
 
         boolean space = false;
@@ -27,7 +27,7 @@ public class ExpressionEvaluator {
                 }while(string.charAt(i) != ' ');
             }
 
-            if(string.charAt(i)==' ' && string.charAt(i+1)==' ') throw new RuntimeException("Nevalidan unos");
+            if(string.charAt(i)==' ' && string.charAt(i+1)==' ') throw new RuntimeException("Nevalidan unos!");
             boolean validanUnos = false;
             if (str.equals("(") || str.equals("+") || str.equals("-")
                     || str.equals("/") || str.equals("sqrt") || str.equals(")") || str.equals("*")) {
@@ -55,10 +55,10 @@ public class ExpressionEvaluator {
                     vrijednosti.push(v);
                 } else vrijednosti.push(Double.parseDouble(str));
             } else {
-                throw new RuntimeException("Nevalidan unos");
+                throw new RuntimeException("Nevalidan unos!");
             }
         }
-        if(!operatori.isEmpty()) throw new RuntimeException("Nevalidan unos");
+        if(!operatori.isEmpty()) throw new RuntimeException("Nevalidan unos!");
         return (Double) vrijednosti.pop();
     }
 }
